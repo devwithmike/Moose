@@ -1,0 +1,23 @@
+{
+  "name": "moose",
+  "version": "1.0.0",
+  "description": "A mongoose clone made for Matcha by [me](https://github.com/mikefmeyer) and [FWMoor](https://github.com/FWMoor)",
+  "main": "moose.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeFMeyer/moose.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeFMeyer/moose/issues"
+  },
+  "homepage": "https://github.com/MikeFMeyer/moose#readme",
+  "dependencies": {
+    "mongodb": "^3.3.4"
+  }
+}
