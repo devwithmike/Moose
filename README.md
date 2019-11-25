@@ -1,2 +1,2 @@
 # moose
-A shittier mongoose.
+A mongoose clone made for Matcha by [FWMoor](https://github.com/FWMoor)
