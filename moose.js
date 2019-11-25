@@ -72,8 +72,19 @@ const deleteOne = (collection, id, cb) => {
 	);
 };
 
+const deleteAll = (collection, options, cb) => {
+	cb(db.collection(collection).deleteMany(options));
+};
+
 // * =================
 // * Exports
 // * =================
 
-module.exports = { deleteOne, findById, findAll, connect, getPrimaryKey };
+module.exports = {
+	deleteAll,
+	deleteOne,
+	findById,
+	findAll,
+	connect,
+	getPrimaryKey
+};
