@@ -54,6 +54,13 @@ const findById = (collection, id, cb) => {
 // * Insert Functions
 // * =================
 
+const insert = (collection, data, cb) => {
+	db.collection(collection).insert(data, (err, result) => {
+		if (err) console.log(err);
+		else cb(result);
+	});
+};
+
 // * =================
 // * Update Functions
 // * =================
@@ -81,6 +88,7 @@ const deleteAll = (collection, options, cb) => {
 // * =================
 
 module.exports = {
+	insert,
 	deleteAll,
 	deleteOne,
 	findById,
