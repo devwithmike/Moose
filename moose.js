@@ -51,12 +51,29 @@ const findById = (collection, id, cb) => {
 };
 
 const findOneById = (collection, id, cb) => {
+	db.collection(collection).findOne(
+		{ _id: getPrimaryKey(id) },
+		(err, result) => {
+			if (err) console.log(err);
+			else cb(result);
+		}
+	);
+};
+
+const findByAny = (collection, options, cb) => {
 	db.collection(collection)
-		.findOne({ _id: getPrimaryKey(id) })
+		.find(options)
 		.toArray((err, docs) => {
 			if (err) console.log(err);
 			else cb(docs);
 		});
+};
+
+const findOneByAny = (collection, options, cb) => {
+	db.collection(collection).findOne(options, (err, result) => {
+		if (err) console.log(err);
+		else cb(result);
+	});
 };
 
 // * =================
@@ -123,6 +140,8 @@ module.exports = {
 	findAll,
 	findById,
 	findOneById,
+	findByAny,
+	findOneByAny,
 	insert,
 	updateById,
 	updateManyById,
