@@ -14,12 +14,12 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 
 ### **General Functions**  
 
-- ***connect***(database name, callback function):  
-- ***getPrimaryKey***(id):  
+- **connect**(database name, callback function):  
+- **getPrimaryKey**(id):  
 
 ### **Insert Function**
 
-- ***insert***(collection, data, callback function):
+- **insert**(collection, data, callback function):
 
 ### **Find Functions**
 
