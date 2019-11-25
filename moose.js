@@ -65,6 +65,28 @@ const insert = (collection, data, cb) => {
 // * Update Functions
 // * =================
 
+const updateById = (collection, id, data, cb) => {
+	db.collection(collection).updateOne(
+		{ _id: getPrimaryKey(id) },
+		{ $set: data },
+		(err, result) => {
+			if (err) console.log(err);
+			else cb(result);
+		}
+	);
+};
+
+const updateManyById = (collection, id, data, cb) => {
+	db.collection(collection).updateMany(
+		{ _id: getPrimaryKey(id) },
+		{ $set: data },
+		(err, result) => {
+			if (err) console.log(err);
+			else cb(result);
+		}
+	);
+};
+
 // * =================
 // * Delete Functions
 // * =================
@@ -88,11 +110,13 @@ const deleteAll = (collection, options, cb) => {
 // * =================
 
 module.exports = {
+	updateById,
 	insert,
 	deleteAll,
 	deleteOne,
 	findById,
 	findAll,
 	connect,
-	getPrimaryKey
+	getPrimaryKey,
+	updateManyById
 };
