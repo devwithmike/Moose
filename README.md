@@ -10,23 +10,34 @@ We can't use mongoose for some of our projects, so we decided to create our own.
 
 Recreating and adding some features and functions to use in our WeThinkCode_ projects.
 
-## **Features**
+## **Functions**  
+
+### **General Functions**  
+
+- ***connect(database name, callback function)***  
+- ***getPrimaryKey(id)***  
 
 ### **Insert Function**
 
-- ***insert(collection, data, cb)***:
+- ***insert(collection, data, callback function)***:
 
 ### **Find Functions**
 
-- ***insert(collection, data, cb)***:
+- ***findAll(collection, callback function)***:  
+- ***findById(collection, id, callback function)***:  
+- ***findOneById(collection, id, callback function)***:  
+- ***findByAny(collection, options, callback function)***:  
+- ***findOneByAny(collection, options, callback function)***:
 
 ### **Update Functions**
 
-- ***insert(collection, data, cb)***:
+- ***updateById(collection, id, data, callback function)***:  
+- ***updateManyById(collection, id, data, callback function)***:
 
 ### **Delete Functions**
 
-- ***insert(collection, data, cb)***:
+- ***deleteAll(collection, options, callback function)***:  
+- ***deleteOne(collection, id, callback function)***:
 
 ## Usage
 
