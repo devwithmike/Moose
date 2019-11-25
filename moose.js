@@ -50,6 +50,15 @@ const findById = (collection, id, cb) => {
 		});
 };
 
+const findOneById = (collection, id, cb) => {
+	db.collection(collection)
+		.findOne({ _id: getPrimaryKey(id) })
+		.toArray((err, docs) => {
+			if (err) console.log(err);
+			else cb(docs);
+		});
+};
+
 // * =================
 // * Insert Functions
 // * =================
@@ -91,6 +100,10 @@ const updateManyById = (collection, id, data, cb) => {
 // * Delete Functions
 // * =================
 
+const deleteAll = (collection, options, cb) => {
+	cb(db.collection(collection).deleteMany(options));
+};
+
 const deleteOne = (collection, id, cb) => {
 	db.collection(collection).deleteOne(
 		{ _id: getPrimaryKey(id) },
@@ -101,22 +114,18 @@ const deleteOne = (collection, id, cb) => {
 	);
 };
 
-const deleteAll = (collection, options, cb) => {
-	cb(db.collection(collection).deleteMany(options));
-};
-
 // * =================
 // * Exports
 // * =================
 
 module.exports = {
-	updateById,
-	insert,
-	deleteAll,
-	deleteOne,
-	findById,
-	findAll,
 	connect,
-	getPrimaryKey,
-	updateManyById
+	findAll,
+	findById,
+	findOneById,
+	insert,
+	updateById,
+	updateManyById,
+	deleteAll,
+	deleteOne
 };
