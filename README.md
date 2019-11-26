@@ -15,8 +15,7 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 ### **General Functions**  
 
 - **connect** (database name, callback function):  
-  > This makes a connection to the database.  
-
+: This makes a connection to the database.  
 - **getPrimaryKey** (id):  
 
 ### **Insert Function**
