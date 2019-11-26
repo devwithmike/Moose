@@ -27,25 +27,35 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 ### **Find Functions**
 
 - **findAll** (collection, callback function):  
-  Returns all the documents in a collection  
+  Returns all the documents in a collection.  
+  
 - **findById** (collection, id, callback function):  
-  Returns the documents in a collection with the same id as the one provided  
+  Returns the documents in a collection with the same id as the one provided.  
+  
 - **findOneById** (collection, id, callback function):  
-  Returns one document in a collection with the same id as the one provided  
+  Returns one document in a collection with the same id as the one provided.  
+  
 - **findByAny** (collection, options, callback function):  
-  Returns the documents in a collection with the same value(s) as the value(s) provided  
+  Returns the documents in a collection with the same value(s) as the value(s) provided.  
+  
 - **findOneByAny** (collection, options, callback function):  
-  Returns one document in a collection with the same value(s) as the value(s) provided  
+  Returns one document in a collection with the same value(s) as the value(s) provided.  
 
 ### **Update Functions**
 
 - **updateById** (collection, id, data, callback function):  
-- **updateManyById** (collection, id, data, callback function):
+  Updates the value in the collection with the same id as the one provided.  
+  
+- **updateManyById** (collection, id, data, callback function):  
+  Updates the values in the collection with the same id as the one provided.  
 
 ### **Delete Functions**
 
 - **deleteAll** (collection, options, callback function):  
-- **deleteOne** (collection, id, callback function):
+  Deletes all the values from a collection where the options are the same as the ones provided.  
+  
+- **deleteOne** (collection, id, callback function):  
+  Deletes one value from the collection where the id is the same as the one provided.  
 
 ## Usage
 
