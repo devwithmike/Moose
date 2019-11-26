@@ -26,7 +26,7 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 
 ### **Find Functions**
 
-- **findAll** (collection, callback function):  
+- **findAll (collection, callback function):**  
   Returns all the documents in a collection.  
   
 - **findById (collection, id, callback function):**  
