@@ -15,20 +15,27 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 ### **General Functions**  
 
 - **connect** (database name, callback function):  
-: This makes a connection to the database.  
+  Used to makes a connection to the database.  
+  
 - **getPrimaryKey** (id):  
 
 ### **Insert Function**
 
-- **insert** (collection, data, callback function):
+- **insert** (collection, data, callback function):  
+  Used to insert document into a collection.
 
 ### **Find Functions**
 
 - **findAll** (collection, callback function):  
+  Returns all the documents in a collection  
 - **findById** (collection, id, callback function):  
+  Returns the documents in a collection with the same id as the one provided  
 - **findOneById** (collection, id, callback function):  
+  Returns one document in a collection with the same id as the one provided  
 - **findByAny** (collection, options, callback function):  
-- **findOneByAny** (collection, options, callback function):
+  Returns the documents in a collection with the same value(s) as the value(s) provided  
+- **findOneByAny** (collection, options, callback function):  
+  Returns one document in a collection with the same value(s) as the value(s) provided  
 
 ### **Update Functions**
 
