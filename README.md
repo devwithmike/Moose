@@ -29,10 +29,10 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 - **findAll** (collection, callback function):  
   Returns all the documents in a collection.  
   
-- **findById** (collection, id, callback function):  
+- **findById (collection, id, callback function):**  
   Returns the documents in a collection with the same id as the one provided.  
   
-- **findOneById** (collection, id, callback function):  
+- **findOneById (collection, id, callback function)**:  
   Returns one document in a collection with the same id as the one provided.  
   
 - **findByAny** (collection, options, callback function):  
