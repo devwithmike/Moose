@@ -20,6 +20,30 @@ const valid = (schema, data) => {
 							flag = true;
 						}
 					}
+					if (k == 'min') {
+						if (data.hasOwnProperty(key)) {
+							if (data[key] < obj['min']) {
+								errors.push(
+									key +
+										' needs to be greater or equal to ' +
+										obj['length']
+								);
+								flag = true;
+							}
+						}
+					}
+					if (k == 'max') {
+						if (data.hasOwnProperty(key)) {
+							if (data[key] > obj['max']) {
+								errors.push(
+									key +
+										' needs to be less than or equal to ' +
+										obj['length']
+								);
+								flag = true;
+							}
+						}
+					}
 					if (k == 'length') {
 						if (data.hasOwnProperty(key)) {
 							if (data[key].length < obj['length']) {
