@@ -112,7 +112,7 @@ Add the following to the schema to validate the input:
 
 ## Dependencies  
 
-[mongodb](https://www.npmjs.com/package/mongodb)
+[mongodb](https://www.npmjs.com/package/mongodb)  
 [bcrypt](https://www.npmjs.com/package/bcrypt)  
 
 ## Disclaimer  
