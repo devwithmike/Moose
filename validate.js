@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 const valid = (schema, data) => {
 	let ret = {};
 	let errors = [];
@@ -99,11 +101,32 @@ const valid = (schema, data) => {
 										key + ' does not match ' + comp
 									);
 									flag = true;
+								} else {
+									bcrypt.compare(
+										data[comp],
+										data[key],
+										function(err, result) {
+											if (err) console.log(err);
+											if (result === false) {
+												errors.push(
+													key +
+														' does not match ' +
+														comp
+												);
+												flag = true;
+											}
+										}
+									);
 								}
 							} else {
 								errors.push(comp + ' does not exist');
 								flag = true;
 							}
+						}
+					}
+					if (k == 'hash') {
+						if (data.hasOwnProperty(key)) {
+							data[key] = bcrypt.hashSync(data[key], 10);
 						}
 					}
 				}

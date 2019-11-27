@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/MikeFMeyer/moose#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "mongodb": "^3.3.4"
   }
 }

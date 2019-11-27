@@ -7,9 +7,14 @@ const url = 'mongodb://localhost:27017';
 const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 class Model {
-	constructor(collection, schema) {
+	constructor(collection, schema = null) {
 		this.collection = collection;
-		this.schema = schema;
+		if (schema) {
+			this.schema = schema;
+			this.validate = true;
+		} else {
+			this.validate = false;
+		}
 	}
 
 	getPrimaryKey = _id => {
@@ -20,19 +25,21 @@ class Model {
 	// * Find Functions
 	// * =================
 
+	// ! TESTING PURPOSES ONLY FOR NOW
 	findAll = cb => {
-		let valid = validate.valid(this.schema, {
-			test: 'dog',
-			other: 'dogsa'
-		});
-		// console.log(valid);
-		cb(valid);
-		// db.collection(this.collection)
-		// 	.find({})
-		// 	.toArray((err, docs) => {
-		// 		if (err) console.log(err);
-		// 		else cb(docs);
-		// 	});
+		if (this.validate) {
+			let valid = validate.valid(this.schema, {
+				test: 'dog'
+			});
+			cb(valid);
+		} else {
+			db.collection(this.collection)
+				.find({})
+				.toArray((err, docs) => {
+					if (err) console.log(err);
+					else cb(docs);
+				});
+		}
 	};
 
 	findById = (id, cb) => {
