@@ -1,12 +1,15 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 
+const validate = require('./validate');
+
 const url = 'mongodb://localhost:27017';
 const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 class Model {
-	constructor(collection) {
+	constructor(collection, schema) {
 		this.collection = collection;
+		this.schema = schema;
 	}
 
 	getPrimaryKey = _id => {
@@ -18,12 +21,18 @@ class Model {
 	// * =================
 
 	findAll = cb => {
-		db.collection(this.collection)
-			.find({})
-			.toArray((err, docs) => {
-				if (err) console.log(err);
-				else cb(docs);
-			});
+		let valid = validate.valid(this.schema, {
+			test: 'dodsfg',
+			other: 'other'
+		});
+		// console.log(valid);
+		cb(valid);
+		// db.collection(this.collection)
+		// 	.find({})
+		// 	.toArray((err, docs) => {
+		// 		if (err) console.log(err);
+		// 		else cb(docs);
+		// 	});
 	};
 
 	findById = (id, cb) => {
