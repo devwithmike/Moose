@@ -22,7 +22,8 @@ class Model {
 
 	findAll = cb => {
 		let valid = validate.valid(this.schema, {
-			test: 'JJddjk23.com'
+			test: 'dog',
+			other: 'dogsa'
 		});
 		// console.log(valid);
 		cb(valid);

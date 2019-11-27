@@ -7,7 +7,7 @@ const valid = (schema, data) => {
 			var obj = schema[key];
 			for (var k in obj) {
 				if (obj.hasOwnProperty(k)) {
-					if (k == 'required') {
+					if (k == 'required' && obj[k]) {
 						if (data.hasOwnProperty(key)) {
 							if (!data[key]) {
 								errors.push(key + ' is required');
@@ -42,7 +42,7 @@ const valid = (schema, data) => {
 							}
 						}
 					}
-					if (k == 'strong') {
+					if (k == 'strong' && obj[k]) {
 						if (data.hasOwnProperty(key)) {
 							let uppercase = data[key].match('[A-Z]');
 							let lowercase = data[key].match('[a-z]');
@@ -79,13 +79,29 @@ const valid = (schema, data) => {
 							}
 						}
 					}
-					if (k == 'email') {
+					if (k == 'email' && obj[k]) {
 						if (data.hasOwnProperty(key)) {
 							let valid = data[key].match(
 								'^(([^<>()\\[\\]\\.,;:\\s@\\"]+(\\.[^<>()\\[\\]\\.,;:\\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\\]\\.,;:\\s@\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\"]{2,})$'
 							);
 							if (!valid) {
 								errors.push(key + ' needs to a valid email');
+								flag = true;
+							}
+						}
+					}
+					if (k == 'matches') {
+						if (data.hasOwnProperty(key)) {
+							let comp = schema[key]['matches'];
+							if (data.hasOwnProperty(comp)) {
+								if (data[key] !== data[comp]) {
+									errors.push(
+										key + ' does not match ' + comp
+									);
+									flag = true;
+								}
+							} else {
+								errors.push(comp + ' does not exist');
 								flag = true;
 							}
 						}
