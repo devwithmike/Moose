@@ -112,8 +112,8 @@ Add the following to the schema to validate the input:
 
 ## Dependencies  
 
-[mongodb](https://www.npmjs.com/package/mongodb)  
-[bcrypt](https://www.npmjs.com/package/bcrypt)  
+[mongodb](https://www.npmjs.com/package/mongodb) - Database.  
+[bcrypt](https://www.npmjs.com/package/bcrypt) - For hashing passwords and input.  
 
 ## Disclaimer  
 
