@@ -13,11 +13,11 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 ## **Contents**  
 * [**Validation**](#validation)
 * [**Functions**](#functions)
-  + [General Functions](#general-functions)
-  + [Insert Functions](#insert-function)
-  + [Find Function](#find-functions)
-  + [Update Function](#update-functions)
-  + [Delete Function](#delete-functions)
+  + [**General Functions**](#general-functions)
+  + [**Insert Functions**](#insert-function)
+  + [**Find Function**](#find-functions)
+  + [**Update Function**](#update-functions)
+  + [**Delete Function**](#delete-functions)
 * [**Dependencies**](#dependencies)
 * [**Disclaimer**](#disclaimer)
 
