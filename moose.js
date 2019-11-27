@@ -42,6 +42,17 @@ class Model {
 		}
 	};
 
+	// * REAL FUNCTION
+
+	// findAll = cb => {
+	// 	db.collection(this.collection)
+	// 		.find({})
+	// 		.toArray((err, docs) => {
+	// 			if (err) console.log(err);
+	// 			else cb(docs);
+	// 		});
+	// };
+
 	findById = (id, cb) => {
 		db.collection(this.collection)
 			.find({ _id: this.getPrimaryKey(id) })
