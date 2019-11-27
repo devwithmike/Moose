@@ -29,6 +29,14 @@ Add the following to the schema to validate the input:
   ```required: true```  
   If required is set to true, input is expected. If not input is received, an error will be added to the object. Expects a boolean value.  
   
+- **min**  
+  ```min: 6```  
+  Min sets the minimum value of the input received. If the input is less, an error will be added to the object. Expects a numeric value.  
+  
+- **max**  
+  ```max: 12```  
+  Max sets the maximum value of the input received. If the input is more, an error will be added to the object. Expects a numeric value.  
+  
 - **length**  
   ```length: 6```
   Length sets the minimum length of the input. If the input's length is less, an error will be added to the object. Expects a numeric value.  
