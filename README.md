@@ -21,6 +21,38 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
 
 ## **Usage**
 
+## **Validation**  
+Add the following to the schema to validate the input:  
+
+- **required**  
+  ```required: true```  
+  If required is set to true, input is expected. If not input is received, an error will be added to the object. Expects a boolean value.  
+  
+- **length**  
+  ```length: 6```
+  Length sets the minimum length of the input. If the input's length is less, an error will be added to the object. Expects a numeric value.  
+  
+- **max-length**  
+  ```max-length: 12```  
+  Max-length sets the maximum length of the input. If the input's is more, an error will be added to the object. Expects a numeric value.  
+  
+- **strong**  
+  ```string: true```  
+  If strong is set to true, the input is checked to see if it contains at least 1 lowercase character, 1 uppercase character, 1 numeric value and 1 special character. If it doesn't, an error will be added to the object. Expects a boolean value.  
+  
+- **email**  
+  ```email: true```  
+  If email is set to true, the input is checked to see if it is a valid email address (only the formating of the address is checked). If not, and error is added to the object. Expects a boolean value.  
+  
+- **matches**  
+  ```matches: 'password'```  
+  Matches compares the input to the given key's input. If they're not the same or the given key doesn't exist, an error is added to the object. Expects a key name.  
+  
+- **hash**  
+  ```hash: true```  
+  If hash is set to true, the input is hashed using [bcrypt](https://www.npmjs.com/package/bcrypt). Expects a boolean value.  
+  
+
 ## **Functions**  
 
 ### **General Functions**  
