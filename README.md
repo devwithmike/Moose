@@ -18,6 +18,7 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
   + [Find Function](#find-functions)
   + [Update Function](#update-functions)
   + [Delete Function](#delete-functions)
+* [**Dependencies**](#dependencies)
 * [**Disclaimer**](#disclaimer)
 
 ## **Usage**
