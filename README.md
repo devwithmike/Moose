@@ -27,7 +27,8 @@ Add the following to the schema to validate the input:
 
 - **required**  
   ```required: true```  
-  If required is set to true, input is expected. If not input is received, an error will be added to the object. Expects a boolean value.  
+  If required is set to true, input is expected. If not input is received, an error will be added to the object.  
+  Expects a boolean value.  
   
 - **min**  
   ```min: 6```  
@@ -116,6 +117,10 @@ Add the following to the schema to validate the input:
   
 - **deleteOne (id, callback function):**  
   Deletes one value from the collection where the id is the same as the one provided.  
+
+## Dependencies  
+
+[bcrypt](https://www.npmjs.com/package/bcrypt)  
 
 
 ## Disclaimer  
