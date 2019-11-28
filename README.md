@@ -1,5 +1,8 @@
 # **Moose**
 
+[![License](https://img.shields.io/github/license/MikeFMeyer/moose.svg?color=blue)]()
+[![Stars](https://img.shields.io/github/stars/MikeFMeyer/moose.svg?color=blue)]()
+
 A simple clone of mongoose, used for some WeThinkCode_ projects, made by [MikeFMeyer](https://github.com/mikefmeyer) & [FWMoor](https://github.com/FWMoor).
 
 ### **Description**
@@ -120,6 +123,9 @@ Add the following to the schema to validate the input:
 [![Mike Meyer](https://avatars0.githubusercontent.com/u/32869361?v=4&s=144)](https://github.com/mikefmeyer)  | [![Frederick Moor](https://avatars2.githubusercontent.com/u/30631816?v=4&s=144)](https://github.com/fwmoor)
 ---|---
 [Mike Meyer ](https://github.com/mikefmeyer) |[Frederick Moor](https://github.com/fwmoor)
+
+## License  
+
 
 ## Disclaimer  
 
