@@ -115,6 +115,12 @@ Add the following to the schema to validate the input:
 [mongodb](https://www.npmjs.com/package/mongodb) - Database.  
 [bcrypt](https://www.npmjs.com/package/bcrypt) - For hashing passwords and input.  
 
+## Team  
+
+[![Mike Meyer](https://avatars0.githubusercontent.com/u/32869361?v=4&s=144)](https://github.com/mikefmeyer)  | [![Frederick Moor](https://avatars2.githubusercontent.com/u/30631816?v=4&s=144)](https://github.com/fwmoor)
+---|---
+[Mike Meyer ](https://github.com/mikefmeyer) |[Frederick Moor](https://github.com/fwmoor)
+
 ## Disclaimer  
 
 Moose does not contain all the features and functions mongoose has. Please read through the documentation for Moose before using it.
