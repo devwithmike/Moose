@@ -126,6 +126,7 @@ Add the following to the schema to validate the input:
 
 ## License  
 
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
 ## Disclaimer  
 
