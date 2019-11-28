@@ -26,7 +26,7 @@ const valid = (schema, data) => {
 								errors.push(
 									key +
 										' needs to be greater or equal to ' +
-										obj['length']
+										obj['min']
 								);
 								flag = true;
 							}
@@ -38,7 +38,7 @@ const valid = (schema, data) => {
 								errors.push(
 									key +
 										' needs to be less than or equal to ' +
-										obj['length']
+										obj['max']
 								);
 								flag = true;
 							}
