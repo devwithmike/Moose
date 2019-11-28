@@ -22,6 +22,8 @@ Recreating and adding some features and functions to use in our WeThinkCode_ pro
   + [**Update Function**](#update-functions)
   + [**Delete Function**](#delete-functions)
 * [**Dependencies**](#dependencies)
+* [**Team**](#team)
+* [**License**](#license)
 * [**Disclaimer**](#disclaimer)
 
 ## **Usage**
