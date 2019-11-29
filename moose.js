@@ -30,7 +30,7 @@ class Model {
 		if (this.validate) {
 			let valid = validate.valid(this.schema, {
 				username: 'dog',
-				number: 3
+				number: 'potato'
 			});
 			console.log(valid);
 			cb(valid);

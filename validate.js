@@ -174,6 +174,15 @@ const valid = (schema, data) => {
 							data[key] = schema[key]['default'];
 						}
 					}
+					if (k == 'enum') {
+						let options = schema[key][k];
+						if (!options.includes(data[key])) {
+							errors.push(
+								data[key] + ' is not one of the allowed options'
+							);
+							flag = true;
+						}
+					}
 				}
 			}
 			if (!flag) {
