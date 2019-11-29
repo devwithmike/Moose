@@ -150,6 +150,16 @@ const valid = (schema, data) => {
 							data[key] = bcrypt.hashSync(data[key], 10);
 						}
 					}
+					if (k == 'default') {
+						if (data.hasOwnProperty(key)) {
+							console.log(schema[key]);
+							if (data[key] == null) {
+								data[key] = schema[key];
+							}
+						} else {
+							data[key] = schema[key]['default'];
+						}
+					}
 				}
 			}
 			if (!flag) {

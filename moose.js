@@ -21,15 +21,23 @@ class Model {
 		return ObjectID(_id);
 	};
 
+	htmlEntities(str) {
+		return String(str)
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;');
+	}
+
 	// * =================
-	// * Find Functions
+	// * Test Functions
 	// * =================
 
 	// ! TESTING PURPOSES ONLY FOR NOW
 	test = cb => {
 		if (this.validate) {
 			let valid = validate.valid(this.schema, {
-				title: 'dog'
+				username: 'dog'
 			});
 			console.log(valid);
 			cb(valid);
@@ -43,7 +51,9 @@ class Model {
 		}
 	};
 
-	// * REAL FUNCTION
+	// * =================
+	// * Find Functions
+	// * =================
 
 	findAll = cb => {
 		db.collection(this.collection)
