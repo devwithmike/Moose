@@ -26,11 +26,12 @@ class Model {
 	// * =================
 
 	// ! TESTING PURPOSES ONLY FOR NOW
-	findAll = cb => {
+	test = cb => {
 		if (this.validate) {
 			let valid = validate.valid(this.schema, {
-				test: 'dog'
+				title: 'dog'
 			});
+			console.log(valid);
 			cb(valid);
 		} else {
 			db.collection(this.collection)
@@ -44,14 +45,14 @@ class Model {
 
 	// * REAL FUNCTION
 
-	// findAll = cb => {
-	// 	db.collection(this.collection)
-	// 		.find({})
-	// 		.toArray((err, docs) => {
-	// 			if (err) console.log(err);
-	// 			else cb(docs);
-	// 		});
-	// };
+	findAll = cb => {
+		db.collection(this.collection)
+			.find({})
+			.toArray((err, docs) => {
+				if (err) console.log(err);
+				else cb(docs);
+			});
+	};
 
 	findById = (id, cb) => {
 		db.collection(this.collection)
@@ -92,11 +93,23 @@ class Model {
 	// * Insert Functions
 	// * =================
 
-	insert = (data, cb) => {
-		db.collection(this.collection).insert(data, (err, result) => {
-			if (err) console.log(err);
-			else cb(result);
-		});
+	insertOne = (data, cb) => {
+		try {
+			if (this.validate) {
+				let valid = validate.valid(this.schema, data);
+				if (valid['errors']['state']) {
+					cb({ errors: valid['errors'] });
+				} else {
+					db.collection(this.collection).insertOne(data);
+					cb(data);
+				}
+			} else {
+				db.collection(this.collection).insertOne(data);
+				cb(data);
+			}
+		} catch (e) {
+			cb({ errors: { state: true, messages: ['could not insert'] } });
+		}
 	};
 
 	// * =================
