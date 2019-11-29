@@ -1,6 +1,21 @@
 const bcrypt = require('bcrypt');
 
+function htmlEntities(str) {
+	return String(str)
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;');
+}
+
+const stringed = data => {
+	for (var index in data) {
+		data[index] = htmlEntities(data[index]);
+	}
+};
+
 const valid = (schema, data) => {
+	//stringed(data);
 	let ret = {};
 	ret['errors'] = { state: false };
 	let errors = [];
@@ -152,7 +167,6 @@ const valid = (schema, data) => {
 					}
 					if (k == 'default') {
 						if (data.hasOwnProperty(key)) {
-							console.log(schema[key]);
 							if (data[key] == null) {
 								data[key] = schema[key];
 							}

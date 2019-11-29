@@ -21,14 +21,6 @@ class Model {
 		return ObjectID(_id);
 	};
 
-	htmlEntities(str) {
-		return String(str)
-			.replace(/&/g, '&amp;')
-			.replace(/</g, '&lt;')
-			.replace(/>/g, '&gt;')
-			.replace(/"/g, '&quot;');
-	}
-
 	// * =================
 	// * Test Functions
 	// * =================
@@ -37,7 +29,8 @@ class Model {
 	test = cb => {
 		if (this.validate) {
 			let valid = validate.valid(this.schema, {
-				username: 'dog'
+				username: 'dog',
+				number: 3
 			});
 			console.log(valid);
 			cb(valid);
