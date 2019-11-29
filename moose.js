@@ -100,8 +100,9 @@ class Model {
 				if (valid['errors']['state']) {
 					cb({ errors: valid['errors'] });
 				} else {
-					db.collection(this.collection).insertOne(data);
-					cb(data);
+					delete valid.errors;
+					db.collection(this.collection).insertOne(valid);
+					cb(valid);
 				}
 			} else {
 				db.collection(this.collection).insertOne(data);

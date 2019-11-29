@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 
 const valid = (schema, data) => {
 	let ret = {};
+	ret['errors'] = { state: false };
 	let errors = [];
+	matchHash = false;
 	for (var key in schema) {
 		let flag = false;
 		if (schema.hasOwnProperty(key)) {
@@ -121,35 +123,30 @@ const valid = (schema, data) => {
 							let comp = schema[key]['matches'];
 							if (data.hasOwnProperty(comp)) {
 								if (data[key] !== data[comp]) {
-									errors.push(
-										key + ' does not match ' + comp
-									);
-									flag = true;
-								} else {
-									bcrypt.compare(
+									let result = bcrypt.compareSync(
 										data[comp],
-										data[key],
-										function(err, result) {
-											if (err) console.log(err);
-											if (result === false) {
-												errors.push(
-													key +
-														' does not match ' +
-														comp
-												);
-												flag = true;
-											}
-										}
+										data[key]
 									);
+									if (result === false) {
+										errors.push(
+											key + ' does not match ' + comp
+										);
+										flag = true;
+									}
 								}
 							} else {
 								errors.push(comp + ' does not exist');
 								flag = true;
 							}
+							delete data[comp];
+							if (schema[comp].hasOwnProperty('required')) {
+								delete schema[comp]['required'];
+							}
 						}
 					}
 					if (k == 'hash') {
 						if (data.hasOwnProperty(key)) {
+							matchHash = true;
 							data[key] = bcrypt.hashSync(data[key], 10);
 						}
 					}
