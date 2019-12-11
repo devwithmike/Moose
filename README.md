@@ -74,7 +74,7 @@ Add the following to the schema to validate the input:
 
 ### **General Functions**  
 
-- **connect (database name, callback function):**  
+- **connect (url, database name, callback function):**  
   Used to makes a connection to the database.  
   
 - **getPrimaryKey (id):**  
