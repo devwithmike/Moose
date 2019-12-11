@@ -3,7 +3,6 @@ const ObjectID = require('mongodb').ObjectID;
 
 const validate = require('./validate');
 
-const url = 'mongodb://localhost:27017';
 const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 class Model {
@@ -30,7 +29,7 @@ class Model {
 		if (this.validate) {
 			let valid = validate.valid(this.schema, {
 				username: 'dog',
-				number: 'potato'
+				number: 'cow'
 			});
 			console.log(valid);
 			cb(valid);
@@ -167,10 +166,10 @@ let db = null;
 // * General Functions
 // * =================
 
-const connect = (dbName, cb) => {
+const connect = (url, dbName, cb) => {
 	if (db) cb();
 	else {
-		MongoClient.connect(url, mongoOptions, (err, client) => {
+		MongoClient.connect(url + '/' + dbName, mongoOptions, (err, client) => {
 			if (err) cb(err);
 			else {
 				db = client.db(dbName);
