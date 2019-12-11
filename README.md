@@ -67,7 +67,7 @@ Add the following to the schema to validate the input:
   
 - **enum**  
   Checks if input fits into a given enum. If not, an error is added to the object.  
-  > Expects any value.
+  > Expects an array of possible values.
   
 
 ## **Functions**  
