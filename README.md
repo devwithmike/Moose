@@ -61,6 +61,14 @@ Add the following to the schema to validate the input:
   If hash is set to true, the input is hashed using [bcrypt](https://www.npmjs.com/package/bcrypt).  
   > Expects a boolean value.  
   
+- **default**  
+  This allows you to set a default value for a field. If no input value is given the default value will be used.
+  > Expects any value.
+  
+- **enum**  
+  Checks if input fits into a given enum. If not, an error is added to the object.  
+  > Expects an array of possible values.
+  
 
 ## **Functions**  
 
@@ -73,7 +81,7 @@ Add the following to the schema to validate the input:
 
 ### **Insert Function**
 
-- **insert (data, callback function):**  
+- **insertOne (data, callback function):**  
   Used to insert document into a collection.
 
 ### **Find Functions**
