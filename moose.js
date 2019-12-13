@@ -72,20 +72,57 @@ class Model {
 		);
 	};
 
-	findByAny = (options, cb) => {
-		db.collection(this.collection)
-			.find(options)
-			.toArray((err, docs) => {
-				if (err) console.log(err);
-				else cb(docs);
-			});
+	findByAny = (options, strict = true, cb) => {
+		let col = db.collection(this.collection);
+		if (strict) {
+			if (typeof options == 'object') {
+				col.find(options).toArray((err, docs) => {
+					if (err) console.log(err);
+					else cb(docs);
+				});
+			} else {
+				cb({ error: 'incorrect input given, object expected' });
+			}
+		} else {
+			if (Array.isArray(options)) {
+				col.find({
+					$or: options
+				}).toArray((err, docs) => {
+					if (err) console.log(err);
+					else cb(docs);
+				});
+			} else {
+				cb({ error: 'incorrect input given, array expected' });
+			}
+		}
 	};
 
-	findOneByAny = (options, cb) => {
-		db.collection(this.collection).findOne(options, (err, result) => {
-			if (err) console.log(err);
-			else cb(result);
-		});
+	findOneByAny = (options, strict = true, cb) => {
+		let col = db.collection(this.collection);
+		if (strict) {
+			if (typeof options == 'object') {
+				col.findOne(options, (err, result) => {
+					if (err) console.log(err);
+					else cb(result);
+				});
+			} else {
+				cb({ error: 'incorrect input given, object expected' });
+			}
+		} else {
+			if (Array.isArray(options)) {
+				col.findOne(
+					{
+						$or: options
+					},
+					(err, result) => {
+						if (err) console.log(err);
+						else cb(result);
+					}
+				);
+			} else {
+				cb({ error: 'incorrect input given, array expected' });
+			}
+		}
 	};
 
 	// * =================
