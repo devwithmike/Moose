@@ -25,12 +25,9 @@ class Model {
 	// * =================
 
 	// ! TESTING PURPOSES ONLY FOR NOW
-	test = cb => {
+	test = (data, cb) => {
 		if (this.validate) {
-			let valid = validate.valid(this.schema, {
-				username: 'dog',
-				number: 'cow'
-			});
+			let valid = validate.valid(this.schema, data);
 			console.log(valid);
 			cb(valid);
 		} else {

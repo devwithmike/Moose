@@ -8,15 +8,16 @@ function htmlEntities(str) {
 		.replace(/"/g, '&quot;');
 }
 
-const stringed = data => {
+function stringed(data) {
 	for (var index in data) {
 		data[index] = htmlEntities(data[index]);
 	}
-};
+	return data;
+}
 
 const valid = (schema, data) => {
-	//stringed(data);
 	let ret = {};
+	ret['body'] = {};
 	ret['errors'] = { state: false };
 	let errors = [];
 	matchHash = false;
@@ -183,10 +184,20 @@ const valid = (schema, data) => {
 							flag = true;
 						}
 					}
+					if (k == 'type') {
+						if (schema[key][k] == 'number') {
+							if (typeof data[key] != 'number') {
+								errors.push(
+									key + ' needs to be a numerical value'
+								);
+								flag = true;
+							}
+						}
+					}
 				}
 			}
 			if (!flag) {
-				ret[key] = data[key];
+				ret['body'][key] = data[key];
 			}
 		}
 	}
@@ -194,6 +205,7 @@ const valid = (schema, data) => {
 		ret['errors'] = { state: true };
 		ret['errors']['messages'] = errors;
 	}
+	ret['body'] = stringed(ret['body']);
 	return ret;
 };
 
